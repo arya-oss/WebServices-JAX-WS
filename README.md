@@ -35,5 +35,16 @@ application provides SOAP Web Service. For more information look at `UserService
 
 Open `http://localhost:8080/soapapp/UserService` in your browser means service deployed successfully.
 
+### How to Setup Client
+1. Import [soapcli](/soapcli) repository into any Java IDE
+2. Import **wsdl generated source in your src/main/java** using command (server must be running)
+  `wsimport -keep http://localhost:8080/soapapp/UserService?wsdl` it will generated server requested sources
+  in `com/rahackya/ccassign/soapapp` directory.
+3. Compile the client code using `mvn clean package`
+4. Run `App.java` using command `mvn exec:java -Dexec.mainClass="com.rahackya.ccassign.App"`
+
+### Tests
+Run `mvn test` for each server and client project and check build is success or not.
+
 ### Contribute
 Please raise an issue or create `pull request` if found something wrong.
